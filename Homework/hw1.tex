@@ -1,0 +1,338 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amssymb, amsmath, amsfonts, amscd, amsthm, xcolor, pgfplots, mathrsfs, commath, esint}
+\usepackage{framed}
+\usepackage[margin=1in]{geometry}
+\linespread{1} %Change the line spacing only if instructed to do so.
+
+\newenvironment{problem}[2][Problem]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1 #2:}]
+	}
+{
+	\end{trivlist}
+	}
+
+\newenvironment{solution}[1][Solution]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\itshape #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+\newenvironment{collaborators}[1][Collaborator(s)]
+{
+	\begin{trivlist} 
+		\item[\hskip \labelsep {\bfseries #1:}]
+	}
+	{
+	\end{trivlist}
+}
+
+
+%\title{Assignment: Problem Set 0}
+%\author{Name: Oleksandr Yardas}
+%\date{Due Date: 00/00/2018}
+
+\pgfplotsset{compat=1.14}
+\begin{document}
+	\begin{titlepage}
+	\centering
+	
+	\vspace*{2 cm}
+	{\LARGE Summer Program in Plasma Physics and Fusion Engineering}
+	
+	\vspace*{5 mm}
+	{\Large Summer 2019}
+	
+	\vspace*{4 cm}
+	{\Large Problem Set 1}
+	
+	\vspace{1 cm}
+	{\Large Author: Oleksandr Yardas}
+	
+	%\vspace*{1 cm}
+	%{\Large Due Date: 00/00/2018}
+	%\thispagestyle{empty}
+	\newpage
+	\section*{List Of Collaborators:}%Enter your collaborators names below. Do not delete extra rows.
+	\begin{itemize}
+		\begin{framed}
+			\item 
+			Problem 1: None
+			\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 2: None
+			\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 3: None
+			\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 4: None
+			\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 5: None/Not Applicable
+			\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 6: None/Not Applicable
+			\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 7: None
+			\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 8: None
+			\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 9: None
+			\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 10: None
+			\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 11: None
+			\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 12: None
+			\\
+		\end{framed}
+		\begin{framed}
+			\item 
+			Problem 13: None
+			\\
+		\end{framed}
+	\end{itemize}
+	\end{titlepage}
+\newpage
+\newpage
+%
+%%%%%%%%%%%%%%%
+%
+% Your problem statements and solutions start here.
+% Use the \newpage command between problems so that
+% each of your problems begins on its own page.
+%
+%%%%%%%%%%%%%%%
+
+%FORMATTING OPTIONS
+%FOR BLANK SPACES: \underline{\hspace{2cm}}
+%FOR SPACES IN align OR SIMILAR ENVIRONMENTS:  \hphantom{1000}
+%FOR MATRICES: \begin{matrix} \end{matrix}, can add p, b, B, v, V, small as suffix to "matrix"
+%SETS: \mathbb{R}^, :\mathbb{R}^ \to \mathbb{R}^
+%Vectors: \vec{},
+%SUBSCRIPTS: _{}
+%FRACTIONS: \frac{}{}
+%FANCY LETTERS: \mathcal{}, \mathscr{}, \mathtt{}, \mathfrak{}
+
+%Provide the problem statement.
+\begin{problem}{1}
+A typical first phase ITER plasma is composed of ionized deuterium at 10keV (assume the ion and electron temperatures are equal) with a density of $10^{20} $ m$^{-3} $ (or $10^{14} $ cm$^{-3}$) in a magnetic field of 5T (or 50kG). Calculate the following lengths for the plasma and compare them to the size of the plasma, a torus with major radius 6.2m and minor radius 2m.
+\noindent
+\newline
+\newline
+a. Debye Length
+\begin{solution}
+In the Introduction talk on Monday we derived that the Debye length, $\lambda_D$, for a single species of ion of charge $Ze$ is
+\[
+\lambda_D = \sqrt{\frac{k \epsilon_{0}}{e^2 (n_e / T_e + Z^2 n_i / T_i)}}
+\] 
+In this case, we are looking at first phase deuterium plasma in the ITER tokamak, and are assuming the ion and electron temperatures are about equal. Because the temperatures are equal, we have that $T_i = T_e$. Additionally, we are at a magnetic field of 5T and energy of 10keV (HOT!), so we can assume the plasma is fully ionized, that is, $n_i = n_e$. For hydrogen, $Z=1$. We can rewrite $kT$ as $k\frac{E}{k} = E$, where $E$ is the energy of the plasma in $eV$. Applying these results to our equation give us a Debye length
+\[
+\lambda_D = \sqrt{\frac{\epsilon_0 E}{2n e^2}}
+\]
+We have $\epsilon_0 = 8.85 \cdot 10^{-12}$ J/V$^{2}$m, $n = 10^{20}$ m$^{-3}$, $E = 10^4$ eV. Using these values in our equation, we calculate:
+\begin{align*}
+\lambda_D =& \sqrt{\frac{8.85 \cdot 10^{-12} \cdot 10^4 [J \cdot eV \cdot m^3 ]}{2 \cdot 10^{20} [ (eV)^2 m]}}\\
+=& \sqrt{4.425 \cdot 10^{-28} \left[ \frac{J \cdot m^2}{eV} \right] }\\
+=& \sqrt{\frac{4.425 \cdot 10^{-28}} {1.602\cdot 10^{-19}} m^2}\\
+=& \sqrt{2.76 \cdot 10^{-9} m^2} = 5.25\cdot 10^{-5} m
+\end{align*}
+This seems in the ballpark based on the table in the Intro lecture. This Debye length is over 50,000 times smaller than the minor (poloidal) radius, and around 17,000 times smaller than the major (toroidal) radius.
+\end{solution}
+\noindent
+\newline
+\newline
+b. Electron and ion gyroradii
+\begin{solution}
+In the Single Particle Motion talk, we derived the gyroradius of charged particles in a magnetic as being given by the Larmor radius
+\[
+r_L = \frac{mv_r}{|q|B}
+\]
+where $v_r$ can be obtained from the cyclotron frequency. The majority of the particles in the tokamak will be in the thermal zone of the velocity distribution, $v_{thermal} = \sqrt{\frac{k_b \cdot T}{m_{ion}}}$. Noting that $k_b T = E_{thermal} = 10keV$ so we can just solve: 
+\begin{align*}
+	v_{thermal} =& \sqrt{\frac{10\cdot 10^3 \cdot 1.602\cdot 10^{-19}}{m_{ion}}}\\
+		=& \sqrt{\frac{3.204\cdot 10^{-15}}{m_{ion}}}
+\end{align*}
+We can insert this into our equation for the gyroradius:
+\[
+	r_L = \frac{\sqrt{3.204\cdot 10^{-15} m_{ion}}}{|q|B}
+\]
+The mass of an electron $m_e = 9.11\cdot 10^{-31}$ kg, and the mass of a deuterium ion is $m_{DT} = 3.34\cdot 10^{-27}$ kg. Using these values, we get
+\begin{align*}
+	r_{L,e} =& 6.7 \cdot 10^{-5} m\\
+	r_{L,DT} =& 4.1 \cdot 10^{-3} m
+\end{align*}
+\end{solution}
+\noindent
+\newline
+\newline
+c. Electron and ion mean free paths. In order to estimate the mean free paths, take the ratio of the thermal velocity to the collision rate. 
+\begin{solution}
+	In the NRL plasma formulary, we are given equations for the collision rates of electrons and ions in plasma:
+	\begin{align*}
+		\nu_{e} =& 2.91\cdot 10^{-6} n_e \cdot \ln{\Lambda} \cdot T_{e}^{-\frac{3}{2}} Hz\\
+		\nu_i =& 4.80\cdot 10^{-8} Z^4 \mu^{-\frac{1}{2}} n_i \ln{\Lambda} \cdot T_{i}^{-\frac{3}{2}} Hz
+	\end{align*}
+We already have our equation for thermal velocity, so we simply compute:
+\begin{align*}
+	\mathscr{l}_e = v_{thermal_{e}}\frac{}{} = 
+\end{align*}
+\end{solution}
+\noindent
+\newline
+\newline
+d. For the same power plant, how long would it take to burn up a 50:50 DT mix?
+\begin{solution}
+-> solution <-
+\end{solution}
+\noindent
+\newline
+\newline
+e. For the same power plant, how long would it take to burn up a 50:50 DT mix?
+\begin{solution}
+-> solution <-
+\end{solution}
+\noindent
+\newline
+\newline
+f. For the same power plant, how long would it take to burn up a 50:50 DT mix?
+\begin{solution}
+-> solution <-
+\end{solution}
+\noindent
+\newline
+\newline
+g. For the same power plant, if each neutron stopped displaces one atom in the blanket, how long would it take to displace most of the atoms in a 0.5m thick blanket?
+\begin{solution}
+-> solution <-
+\end{solution}
+\noindent
+\newline
+\newline
+h. Given that one atom in 6000 of hydrogen in ocean water is deuterium, and that the average electricity use per capita in the US is 1700W, approximately what volume of seawater provides enough D (then fused with a proportional amount of Tritium) to power your life for a year?
+\begin{solution}
+-> solution <-
+\end{solution}
+
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{2}
+->problem statement<-
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+-> solution <-
+\end{solution}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{3}
+->problem statement<-
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+-> solution <-
+\end{solution}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{4}
+->problem statement<-
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+-> solution <-
+\end{solution}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{5}
+->problem statement<-
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+-> solution <-
+\end{solution}
+\end{problem}
+
+
+
+
+
+
+\newpage
+\begin{problem}{6}
+->problem statement<-
+\noindent
+\newline
+\newline
+%a. [PART A STUFF]
+\begin{solution}
+-> solution <-
+\end{solution}
+\end{problem}
+
+
+\end{document}
